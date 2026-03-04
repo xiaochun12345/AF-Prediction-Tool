@@ -1,0 +1,9 @@
+joblib==1.5.2
+numpy==2.2.6
+pandas==2.3.3
+plotly==6.5.0
+scikit-learn==1.7.2
+scikit-survival==0.25.0
+streamlit==1.52.1
+lifelines==0.30.0
+
