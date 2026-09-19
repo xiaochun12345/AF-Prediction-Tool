@@ -1,0 +1,2256 @@
+{
+  "format_version": 2,
+  "release": "revision_v2_2026-09-19",
+  "model": "Elastic Net Cox",
+  "source_model_sha256": "2d4788c95f46812a9c2841282914e3144af32d368450ee0df623aa2100a3257a",
+  "parameters": {
+    "alpha": 0.01,
+    "l1_ratio": 0.1
+  },
+  "imputations": 5,
+  "features": [
+    {
+      "name": "age",
+      "label": "Age",
+      "unit": "years",
+      "group": "Demographics & body measures",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 40.0,
+      "training_max": 70.0
+    },
+    {
+      "name": "bmi",
+      "label": "Body mass index",
+      "unit": "kg/m²",
+      "group": "Demographics & body measures",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 14.86053955,
+      "training_max": 57.55950774
+    },
+    {
+      "name": "sbp",
+      "label": "Systolic blood pressure",
+      "unit": "mmHg",
+      "group": "Demographics & body measures",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 80.0,
+      "training_max": 234.0
+    },
+    {
+      "name": "weight",
+      "label": "Weight",
+      "unit": "kg",
+      "group": "Demographics & body measures",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 36.0,
+      "training_max": 182.0
+    },
+    {
+      "name": "sleepapnoea",
+      "label": "Sleep apnoea",
+      "unit": "",
+      "group": "Lifestyle & symptoms",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "numoftreatments_medications",
+      "label": "Number of baseline treatments / medications",
+      "unit": "count",
+      "group": "Medical history",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 0.0,
+      "training_max": 31.0
+    },
+    {
+      "name": "height",
+      "label": "Height",
+      "unit": "m",
+      "group": "Demographics & body measures",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 1.22,
+      "training_max": 2.0
+    },
+    {
+      "name": "lossweight",
+      "label": "Weight loss versus one year ago",
+      "unit": "",
+      "group": "Lifestyle & symptoms",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "fall",
+      "label": "Falls in the last year",
+      "unit": "",
+      "group": "Lifestyle & symptoms",
+      "type": "category",
+      "choices": [
+        0,
+        1,
+        2
+      ],
+      "choice_labels": {
+        "0": "No falls",
+        "1": "One fall",
+        "2": "More than one fall"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "disability",
+      "label": "Long-standing illness, disability or infirmity",
+      "unit": "",
+      "group": "Medical history",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "Blood_clot_in_the_leg",
+      "label": "History of deep vein thrombosis",
+      "unit": "",
+      "group": "Medical history",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "Hayfever_allergic_rhinitis_eczema",
+      "label": "Hay fever, allergic rhinitis or eczema",
+      "unit": "",
+      "group": "Medical history",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "Angina",
+      "label": "Angina",
+      "unit": "",
+      "group": "Medical history",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "hypertension",
+      "label": "Hypertension",
+      "unit": "",
+      "group": "Medical history",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "diabete",
+      "label": "Diabetes",
+      "unit": "",
+      "group": "Medical history",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "smoke",
+      "label": "Smoking history",
+      "unit": "",
+      "group": "Lifestyle & symptoms",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "Never",
+        "1": "Current or previous"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "race",
+      "label": "Ethnic background",
+      "unit": "",
+      "group": "Demographics & body measures",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "Other / non-white",
+        "1": "White"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "sex",
+      "label": "Sex",
+      "unit": "",
+      "group": "Demographics & body measures",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "Female",
+        "1": "Male"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "insomnia",
+      "label": "Trouble falling asleep or waking at night",
+      "unit": "",
+      "group": "Lifestyle & symptoms",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "Usually",
+        "1": "Never / rarely or sometimes"
+      },
+      "help": "Study coding is 0 = usually, 1 = never/rarely or sometimes; the displayed choices map to the verified study values."
+    },
+    {
+      "name": "Albumin",
+      "label": "Albumin",
+      "unit": "g/L",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 20.67,
+      "training_max": 55.54
+    },
+    {
+      "name": "Alkaline_phosphatase",
+      "label": "Alkaline phosphatase",
+      "unit": "U/L",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 23.1,
+      "training_max": 486.5
+    },
+    {
+      "name": "Apolipoprotein_B",
+      "label": "Apolipoprotein B",
+      "unit": "g/L",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 0.403,
+      "training_max": 1.991
+    },
+    {
+      "name": "C_reactive_protein",
+      "label": "C-reactive protein",
+      "unit": "mg/L",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 0.11,
+      "training_max": 78.26
+    },
+    {
+      "name": "Cholesterol",
+      "label": "Total cholesterol",
+      "unit": "mmol/L",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 2.033,
+      "training_max": 12.285
+    },
+    {
+      "name": "Creatinine",
+      "label": "Creatinine",
+      "unit": "µmol/L",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 29.1,
+      "training_max": 1220.1
+    },
+    {
+      "name": "Cystatin_C",
+      "label": "Cystatin C",
+      "unit": "mg/L",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 0.45,
+      "training_max": 6.104
+    },
+    {
+      "name": "Gamma_glutamyltransferase",
+      "label": "Gamma-glutamyltransferase",
+      "unit": "U/L",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 5.7,
+      "training_max": 1145.3
+    },
+    {
+      "name": "Glucose",
+      "label": "Glucose",
+      "unit": "mmol/L",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 2.578,
+      "training_max": 30.054
+    },
+    {
+      "name": "Glycated_haemoglobin",
+      "label": "HbA1c",
+      "unit": "mmol/mol",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Enter mmol/mol, not percent. The previous website unit label was incorrect.",
+      "training_min": 15.6,
+      "training_max": 515.2
+    },
+    {
+      "name": "LDL_direct",
+      "label": "LDL cholesterol (direct)",
+      "unit": "mmol/L",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 0.981,
+      "training_max": 8.236
+    },
+    {
+      "name": "Urate",
+      "label": "Urate",
+      "unit": "µmol/L",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Enter µmol/L, not mmol/L.",
+      "training_min": 94.0,
+      "training_max": 778.0
+    },
+    {
+      "name": "Urea",
+      "label": "Urea",
+      "unit": "mmol/L",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Use the baseline measurement.",
+      "training_min": 1.18,
+      "training_max": 33.55
+    },
+    {
+      "name": "prs",
+      "label": "AF polygenic risk score",
+      "unit": "same AF-PRS scale as the study",
+      "group": "Biomarkers & AF-PRS",
+      "type": "number",
+      "minimum": null,
+      "help": "Use the same AF-PRS definition and scale as the study. A score from another genetic test cannot be substituted directly.",
+      "training_min": -3.0934,
+      "training_max": 4.36204
+    },
+    {
+      "name": "heartfailer",
+      "label": "Heart failure",
+      "unit": "",
+      "group": "Medical history",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "stroke",
+      "label": "Stroke",
+      "unit": "",
+      "group": "Medical history",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "infarc",
+      "label": "Myocardial infarction",
+      "unit": "",
+      "group": "Medical history",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "duration",
+      "label": "Time since recorded COPD report",
+      "unit": "years",
+      "group": "COPD & medication use",
+      "type": "number",
+      "minimum": 0.0,
+      "help": "Baseline assessment date minus UKB field 42016, divided by 365.25. This is recorded duration, not a verified biological onset date.",
+      "training_min": 0.0,
+      "training_max": 68.1259
+    },
+    {
+      "name": "SABA",
+      "label": "Short-acting beta agonist (SABA)",
+      "unit": "",
+      "group": "COPD & medication use",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "LABA",
+      "label": "Long-acting beta agonist (LABA)",
+      "unit": "",
+      "group": "COPD & medication use",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "SAMA",
+      "label": "Short-acting muscarinic antagonist (SAMA)",
+      "unit": "",
+      "group": "COPD & medication use",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "LAMA",
+      "label": "Long-acting muscarinic antagonist (LAMA)",
+      "unit": "",
+      "group": "COPD & medication use",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "Theophylline",
+      "label": "Theophylline",
+      "unit": "",
+      "group": "COPD & medication use",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "Systemic_corticosteroids",
+      "label": "Systemic corticosteroids",
+      "unit": "",
+      "group": "COPD & medication use",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "Beta_blockers",
+      "label": "Beta blockers",
+      "unit": "",
+      "group": "COPD & medication use",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "NonDHP_CCB",
+      "label": "Non-dihydropyridine calcium channel blocker",
+      "unit": "",
+      "group": "COPD & medication use",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "ACE_inhibitors",
+      "label": "ACE inhibitors",
+      "unit": "",
+      "group": "COPD & medication use",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "ARBs",
+      "label": "Angiotensin receptor blockers (ARBs)",
+      "unit": "",
+      "group": "COPD & medication use",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "Digoxin",
+      "label": "Digoxin",
+      "unit": "",
+      "group": "COPD & medication use",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "Baseline status / medication use: no = 0, yes = 1."
+    },
+    {
+      "name": "j44_prior",
+      "label": "Inpatient J44.1 record on or before baseline",
+      "unit": "",
+      "group": "COPD & medication use",
+      "type": "category",
+      "choices": [
+        0,
+        1
+      ],
+      "choice_labels": {
+        "0": "No",
+        "1": "Yes"
+      },
+      "help": "First recorded inpatient J44.1 diagnosis on or before baseline. This is not the number of exacerbations or a complete one-year exacerbation history."
+    }
+  ],
+  "times": [
+    0.0,
+    0.5,
+    0.7435897435897436,
+    0.9871794871794872,
+    1.0,
+    1.2307692307692308,
+    1.4743589743589745,
+    1.7179487179487178,
+    1.9615384615384615,
+    2.2051282051282053,
+    2.448717948717949,
+    2.692307692307692,
+    2.9358974358974357,
+    3.0,
+    3.1794871794871793,
+    3.423076923076923,
+    3.6666666666666665,
+    3.91025641025641,
+    4.153846153846153,
+    4.397435897435898,
+    4.6410256410256405,
+    4.884615384615384,
+    5.0,
+    5.128205128205128,
+    5.371794871794871,
+    5.615384615384615,
+    5.858974358974359,
+    6.102564102564102,
+    6.346153846153846,
+    6.589743589743589,
+    6.833333333333333,
+    7.076923076923077,
+    7.32051282051282,
+    7.564102564102564,
+    7.8076923076923075,
+    8.051282051282051,
+    8.294871794871796,
+    8.538461538461538,
+    8.782051282051281,
+    9.025641025641026,
+    9.269230769230768,
+    9.512820512820513,
+    9.756410256410255,
+    10.0
+  ],
+  "report_years": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "fits": [
+    {
+      "offset": 7.690800236167054,
+      "terms": [
+        {
+          "feature": "age",
+          "coefficient": 0.06432631988780756,
+          "category": null
+        },
+        {
+          "feature": "bmi",
+          "coefficient": 0.0,
+          "category": null
+        },
+        {
+          "feature": "sbp",
+          "coefficient": -0.0003395230008202164,
+          "category": null
+        },
+        {
+          "feature": "weight",
+          "coefficient": 0.0021176430688279145,
+          "category": null
+        },
+        {
+          "feature": "numoftreatments_medications",
+          "coefficient": 0.04045489186714573,
+          "category": null
+        },
+        {
+          "feature": "height",
+          "coefficient": 1.7067218584488213,
+          "category": null
+        },
+        {
+          "feature": "Albumin",
+          "coefficient": -0.012230852277931326,
+          "category": null
+        },
+        {
+          "feature": "Alkaline_phosphatase",
+          "coefficient": 0.0012045937177595158,
+          "category": null
+        },
+        {
+          "feature": "Apolipoprotein_B",
+          "coefficient": -0.5744660434422368,
+          "category": null
+        },
+        {
+          "feature": "C_reactive_protein",
+          "coefficient": 0.009079971584037443,
+          "category": null
+        },
+        {
+          "feature": "Cholesterol",
+          "coefficient": 0.0734516156676814,
+          "category": null
+        },
+        {
+          "feature": "Creatinine",
+          "coefficient": -0.0010737526366748043,
+          "category": null
+        },
+        {
+          "feature": "Cystatin_C",
+          "coefficient": 0.5783135669135762,
+          "category": null
+        },
+        {
+          "feature": "Gamma_glutamyltransferase",
+          "coefficient": 0.000422036942000357,
+          "category": null
+        },
+        {
+          "feature": "Glucose",
+          "coefficient": 0.024026537376053845,
+          "category": null
+        },
+        {
+          "feature": "Glycated_haemoglobin",
+          "coefficient": -1.4013005358670177e-05,
+          "category": null
+        },
+        {
+          "feature": "LDL_direct",
+          "coefficient": 0.0,
+          "category": null
+        },
+        {
+          "feature": "Urate",
+          "coefficient": 0.0009193157661569082,
+          "category": null
+        },
+        {
+          "feature": "Urea",
+          "coefficient": -0.017610530728546913,
+          "category": null
+        },
+        {
+          "feature": "prs",
+          "coefficient": 0.3265160695133655,
+          "category": null
+        },
+        {
+          "feature": "duration",
+          "coefficient": -0.0026770003583342678,
+          "category": null
+        },
+        {
+          "feature": "sleepapnoea",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "lossweight",
+          "coefficient": 0.12104622806854971,
+          "category": 1.0
+        },
+        {
+          "feature": "fall",
+          "coefficient": -0.008805856246623943,
+          "category": 1.0
+        },
+        {
+          "feature": "fall",
+          "coefficient": 0.02624003813036902,
+          "category": 2.0
+        },
+        {
+          "feature": "disability",
+          "coefficient": 0.12696860589078074,
+          "category": 1.0
+        },
+        {
+          "feature": "Blood_clot_in_the_leg",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "Hayfever_allergic_rhinitis_eczema",
+          "coefficient": -0.09135010409992007,
+          "category": 1.0
+        },
+        {
+          "feature": "Angina",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "hypertension",
+          "coefficient": 0.1676796051075082,
+          "category": 1.0
+        },
+        {
+          "feature": "diabete",
+          "coefficient": 0.00208470036389319,
+          "category": 1.0
+        },
+        {
+          "feature": "smoke",
+          "coefficient": 0.013351459692213997,
+          "category": 1.0
+        },
+        {
+          "feature": "race",
+          "coefficient": 0.025819722545271803,
+          "category": 1.0
+        },
+        {
+          "feature": "sex",
+          "coefficient": 0.039552425048306986,
+          "category": 1.0
+        },
+        {
+          "feature": "insomnia",
+          "coefficient": -0.044076076579018617,
+          "category": 1.0
+        },
+        {
+          "feature": "heartfailer",
+          "coefficient": 0.01797969962282181,
+          "category": 1.0
+        },
+        {
+          "feature": "stroke",
+          "coefficient": 0.043400312036946616,
+          "category": 1.0
+        },
+        {
+          "feature": "infarc",
+          "coefficient": 0.09449693984259258,
+          "category": 1.0
+        },
+        {
+          "feature": "SABA",
+          "coefficient": 0.1028573391828198,
+          "category": 1.0
+        },
+        {
+          "feature": "LABA",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "SAMA",
+          "coefficient": 0.07249306510710771,
+          "category": 1.0
+        },
+        {
+          "feature": "LAMA",
+          "coefficient": 0.09227868395310196,
+          "category": 1.0
+        },
+        {
+          "feature": "Theophylline",
+          "coefficient": 0.12702399729948347,
+          "category": 1.0
+        },
+        {
+          "feature": "Systemic_corticosteroids",
+          "coefficient": 0.021031316796407025,
+          "category": 1.0
+        },
+        {
+          "feature": "Beta_blockers",
+          "coefficient": 0.052523843199791656,
+          "category": 1.0
+        },
+        {
+          "feature": "NonDHP_CCB",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "ACE_inhibitors",
+          "coefficient": 0.05444709430307205,
+          "category": 1.0
+        },
+        {
+          "feature": "ARBs",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "Digoxin",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "j44_prior",
+          "coefficient": 0.1288294232749551,
+          "category": 1.0
+        }
+      ],
+      "baseline_hazard": [
+        0.0,
+        0.003011789045930409,
+        0.00408071771870059,
+        0.005001621469188835,
+        0.0051554560368669,
+        0.006855345251063439,
+        0.008412650465903192,
+        0.010774860267454731,
+        0.011886972846913773,
+        0.013483618548108152,
+        0.014448943728105724,
+        0.01704893733576278,
+        0.018692015504239996,
+        0.019021896332824622,
+        0.01984915232185625,
+        0.022720679470654953,
+        0.025646173200128176,
+        0.02756058524179931,
+        0.029314938089821427,
+        0.030375678116787826,
+        0.03376542110828067,
+        0.03754483182101223,
+        0.03918983045796688,
+        0.039926625344513064,
+        0.044014502741819304,
+        0.04589868938391807,
+        0.04875223284713819,
+        0.05106022371834402,
+        0.05300547575962262,
+        0.05517372785255355,
+        0.05697304982708266,
+        0.059388766381043415,
+        0.06161920769644679,
+        0.06572995430412584,
+        0.06947836152447755,
+        0.07201699226870213,
+        0.07629893327239742,
+        0.08174992187107494,
+        0.08597610047529926,
+        0.09005559267513186,
+        0.094420907570568,
+        0.09745860065421431,
+        0.10077270850321574,
+        0.10656624110417204
+      ]
+    },
+    {
+      "offset": 7.421199871434747,
+      "terms": [
+        {
+          "feature": "age",
+          "coefficient": 0.0635242695165861,
+          "category": null
+        },
+        {
+          "feature": "bmi",
+          "coefficient": 0.0,
+          "category": null
+        },
+        {
+          "feature": "sbp",
+          "coefficient": 0.00022339252626878085,
+          "category": null
+        },
+        {
+          "feature": "weight",
+          "coefficient": 0.0024322975346098325,
+          "category": null
+        },
+        {
+          "feature": "numoftreatments_medications",
+          "coefficient": 0.04059023576062818,
+          "category": null
+        },
+        {
+          "feature": "height",
+          "coefficient": 1.6651008029668044,
+          "category": null
+        },
+        {
+          "feature": "Albumin",
+          "coefficient": -0.018277963749294933,
+          "category": null
+        },
+        {
+          "feature": "Alkaline_phosphatase",
+          "coefficient": 0.0023721165536567746,
+          "category": null
+        },
+        {
+          "feature": "Apolipoprotein_B",
+          "coefficient": -0.5349810193790866,
+          "category": null
+        },
+        {
+          "feature": "C_reactive_protein",
+          "coefficient": 0.00902439559634222,
+          "category": null
+        },
+        {
+          "feature": "Cholesterol",
+          "coefficient": 0.06947181072568535,
+          "category": null
+        },
+        {
+          "feature": "Creatinine",
+          "coefficient": -0.0008799262609852336,
+          "category": null
+        },
+        {
+          "feature": "Cystatin_C",
+          "coefficient": 0.5146195956714154,
+          "category": null
+        },
+        {
+          "feature": "Gamma_glutamyltransferase",
+          "coefficient": 1.391887518925739e-05,
+          "category": null
+        },
+        {
+          "feature": "Glucose",
+          "coefficient": 0.016267092311491257,
+          "category": null
+        },
+        {
+          "feature": "Glycated_haemoglobin",
+          "coefficient": 0.0,
+          "category": null
+        },
+        {
+          "feature": "LDL_direct",
+          "coefficient": -0.0052102512636325185,
+          "category": null
+        },
+        {
+          "feature": "Urate",
+          "coefficient": 0.0008693291910329364,
+          "category": null
+        },
+        {
+          "feature": "Urea",
+          "coefficient": -0.016125344762004244,
+          "category": null
+        },
+        {
+          "feature": "prs",
+          "coefficient": 0.33205154076888743,
+          "category": null
+        },
+        {
+          "feature": "duration",
+          "coefficient": -0.0025469324577243944,
+          "category": null
+        },
+        {
+          "feature": "sleepapnoea",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "lossweight",
+          "coefficient": 0.11810828691798901,
+          "category": 1.0
+        },
+        {
+          "feature": "fall",
+          "coefficient": -0.0026713556520506923,
+          "category": 1.0
+        },
+        {
+          "feature": "fall",
+          "coefficient": 0.025066929583924345,
+          "category": 2.0
+        },
+        {
+          "feature": "disability",
+          "coefficient": 0.127061576885449,
+          "category": 1.0
+        },
+        {
+          "feature": "Blood_clot_in_the_leg",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "Hayfever_allergic_rhinitis_eczema",
+          "coefficient": -0.09071980193575013,
+          "category": 1.0
+        },
+        {
+          "feature": "Angina",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "hypertension",
+          "coefficient": 0.17108105243558738,
+          "category": 1.0
+        },
+        {
+          "feature": "diabete",
+          "coefficient": 0.023554781413964557,
+          "category": 1.0
+        },
+        {
+          "feature": "smoke",
+          "coefficient": 0.02099965477153163,
+          "category": 1.0
+        },
+        {
+          "feature": "race",
+          "coefficient": 0.02929425715136153,
+          "category": 1.0
+        },
+        {
+          "feature": "sex",
+          "coefficient": 0.05382991256695988,
+          "category": 1.0
+        },
+        {
+          "feature": "insomnia",
+          "coefficient": -0.04592352523580714,
+          "category": 1.0
+        },
+        {
+          "feature": "heartfailer",
+          "coefficient": 0.04051757736054843,
+          "category": 1.0
+        },
+        {
+          "feature": "stroke",
+          "coefficient": 0.04242709524517981,
+          "category": 1.0
+        },
+        {
+          "feature": "infarc",
+          "coefficient": 0.10025367633662637,
+          "category": 1.0
+        },
+        {
+          "feature": "SABA",
+          "coefficient": 0.10067192626720807,
+          "category": 1.0
+        },
+        {
+          "feature": "LABA",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "SAMA",
+          "coefficient": 0.07441730274028811,
+          "category": 1.0
+        },
+        {
+          "feature": "LAMA",
+          "coefficient": 0.09033691185171182,
+          "category": 1.0
+        },
+        {
+          "feature": "Theophylline",
+          "coefficient": 0.12520801652329172,
+          "category": 1.0
+        },
+        {
+          "feature": "Systemic_corticosteroids",
+          "coefficient": 0.025083217666830422,
+          "category": 1.0
+        },
+        {
+          "feature": "Beta_blockers",
+          "coefficient": 0.05591944465353393,
+          "category": 1.0
+        },
+        {
+          "feature": "NonDHP_CCB",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "ACE_inhibitors",
+          "coefficient": 0.05859338042623958,
+          "category": 1.0
+        },
+        {
+          "feature": "ARBs",
+          "coefficient": 0.003480644825219757,
+          "category": 1.0
+        },
+        {
+          "feature": "Digoxin",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "j44_prior",
+          "coefficient": 0.1382635459557866,
+          "category": 1.0
+        }
+      ],
+      "baseline_hazard": [
+        0.0,
+        0.003013901275263618,
+        0.0040830549947202255,
+        0.00500403059634773,
+        0.005157882613912227,
+        0.006858394790464225,
+        0.00841624443473712,
+        0.010779355980499708,
+        0.011891940889991454,
+        0.013489179144967061,
+        0.01445448060309676,
+        0.017054210644220864,
+        0.01869791767064511,
+        0.019027971551685646,
+        0.01985562199103798,
+        0.022723871153429706,
+        0.025643148393648296,
+        0.027552813927212223,
+        0.029302213474900005,
+        0.030360022567430964,
+        0.033740205798699796,
+        0.03750861208169987,
+        0.03914791392429704,
+        0.03988204173166077,
+        0.043955590472063384,
+        0.04583355165589963,
+        0.04867719258362171,
+        0.050977432765080564,
+        0.05291660207506497,
+        0.05507821041797119,
+        0.05687155138861278,
+        0.059279119173193506,
+        0.06150155802601245,
+        0.06559716456018683,
+        0.06933186656911547,
+        0.07186138201386041,
+        0.07612875287871933,
+        0.0815583129654438,
+        0.08576818343913578,
+        0.08983379927693631,
+        0.09418340635437551,
+        0.09720950090811925,
+        0.10051006187157438,
+        0.10627608032947307
+      ]
+    },
+    {
+      "offset": 7.2314314499653,
+      "terms": [
+        {
+          "feature": "age",
+          "coefficient": 0.06365090522413558,
+          "category": null
+        },
+        {
+          "feature": "bmi",
+          "coefficient": -0.004844987383541509,
+          "category": null
+        },
+        {
+          "feature": "sbp",
+          "coefficient": 0.0,
+          "category": null
+        },
+        {
+          "feature": "weight",
+          "coefficient": 0.004170058422923746,
+          "category": null
+        },
+        {
+          "feature": "numoftreatments_medications",
+          "coefficient": 0.03955365761938491,
+          "category": null
+        },
+        {
+          "feature": "height",
+          "coefficient": 1.402208685852144,
+          "category": null
+        },
+        {
+          "feature": "Albumin",
+          "coefficient": -0.013887150418114834,
+          "category": null
+        },
+        {
+          "feature": "Alkaline_phosphatase",
+          "coefficient": 0.0015154428618194932,
+          "category": null
+        },
+        {
+          "feature": "Apolipoprotein_B",
+          "coefficient": -0.4946943056584435,
+          "category": null
+        },
+        {
+          "feature": "C_reactive_protein",
+          "coefficient": 0.010127835182435494,
+          "category": null
+        },
+        {
+          "feature": "Cholesterol",
+          "coefficient": 0.1051111208561322,
+          "category": null
+        },
+        {
+          "feature": "Creatinine",
+          "coefficient": -0.0012344275011713013,
+          "category": null
+        },
+        {
+          "feature": "Cystatin_C",
+          "coefficient": 0.5936024594801993,
+          "category": null
+        },
+        {
+          "feature": "Gamma_glutamyltransferase",
+          "coefficient": 8.232911284335339e-05,
+          "category": null
+        },
+        {
+          "feature": "Glucose",
+          "coefficient": 0.02509304132394609,
+          "category": null
+        },
+        {
+          "feature": "Glycated_haemoglobin",
+          "coefficient": -0.00018027369943864936,
+          "category": null
+        },
+        {
+          "feature": "LDL_direct",
+          "coefficient": -0.052513063602210974,
+          "category": null
+        },
+        {
+          "feature": "Urate",
+          "coefficient": 0.0008118576445042387,
+          "category": null
+        },
+        {
+          "feature": "Urea",
+          "coefficient": -0.01563739301559954,
+          "category": null
+        },
+        {
+          "feature": "prs",
+          "coefficient": 0.3295383993746283,
+          "category": null
+        },
+        {
+          "feature": "duration",
+          "coefficient": -0.002533286184364178,
+          "category": null
+        },
+        {
+          "feature": "sleepapnoea",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "lossweight",
+          "coefficient": 0.11624762226558343,
+          "category": 1.0
+        },
+        {
+          "feature": "fall",
+          "coefficient": -0.009816090292248662,
+          "category": 1.0
+        },
+        {
+          "feature": "fall",
+          "coefficient": 0.025841831655915717,
+          "category": 2.0
+        },
+        {
+          "feature": "disability",
+          "coefficient": 0.12946914851263056,
+          "category": 1.0
+        },
+        {
+          "feature": "Blood_clot_in_the_leg",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "Hayfever_allergic_rhinitis_eczema",
+          "coefficient": -0.09348230176514662,
+          "category": 1.0
+        },
+        {
+          "feature": "Angina",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "hypertension",
+          "coefficient": 0.17079977372167848,
+          "category": 1.0
+        },
+        {
+          "feature": "diabete",
+          "coefficient": 0.004997232991926926,
+          "category": 1.0
+        },
+        {
+          "feature": "smoke",
+          "coefficient": 0.022499023780465227,
+          "category": 1.0
+        },
+        {
+          "feature": "race",
+          "coefficient": 0.0258080280915112,
+          "category": 1.0
+        },
+        {
+          "feature": "sex",
+          "coefficient": 0.07022884155171272,
+          "category": 1.0
+        },
+        {
+          "feature": "insomnia",
+          "coefficient": -0.045279812251333415,
+          "category": 1.0
+        },
+        {
+          "feature": "heartfailer",
+          "coefficient": 0.030781288686764205,
+          "category": 1.0
+        },
+        {
+          "feature": "stroke",
+          "coefficient": 0.05021211004589637,
+          "category": 1.0
+        },
+        {
+          "feature": "infarc",
+          "coefficient": 0.10638104776445767,
+          "category": 1.0
+        },
+        {
+          "feature": "SABA",
+          "coefficient": 0.10457352003476955,
+          "category": 1.0
+        },
+        {
+          "feature": "LABA",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "SAMA",
+          "coefficient": 0.07128143487496148,
+          "category": 1.0
+        },
+        {
+          "feature": "LAMA",
+          "coefficient": 0.08519966563164,
+          "category": 1.0
+        },
+        {
+          "feature": "Theophylline",
+          "coefficient": 0.12556732485769181,
+          "category": 1.0
+        },
+        {
+          "feature": "Systemic_corticosteroids",
+          "coefficient": 0.013605941724763718,
+          "category": 1.0
+        },
+        {
+          "feature": "Beta_blockers",
+          "coefficient": 0.05546421135275205,
+          "category": 1.0
+        },
+        {
+          "feature": "NonDHP_CCB",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "ACE_inhibitors",
+          "coefficient": 0.05283591499318331,
+          "category": 1.0
+        },
+        {
+          "feature": "ARBs",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "Digoxin",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "j44_prior",
+          "coefficient": 0.130537623878578,
+          "category": 1.0
+        }
+      ],
+      "baseline_hazard": [
+        0.0,
+        0.0030040969933847013,
+        0.004070885266270305,
+        0.004989764214422433,
+        0.005143262502175731,
+        0.006839656060266038,
+        0.00839388482781013,
+        0.010751584773065927,
+        0.011861690695928512,
+        0.013455655087027346,
+        0.014419170640381705,
+        0.01701444165533899,
+        0.0186562142962952,
+        0.018985835808732227,
+        0.019812462431085233,
+        0.022685590196230968,
+        0.02561465488861271,
+        0.027530880466070114,
+        0.029286408615076077,
+        0.030348091903910093,
+        0.03374031248100294,
+        0.03752115886241684,
+        0.03916566541604826,
+        0.039902288385895344,
+        0.04398996442147595,
+        0.04587429177257809,
+        0.048728055523057326,
+        0.05103691923556459,
+        0.05298375665025605,
+        0.05515385159627741,
+        0.05695477977507868,
+        0.05937247889175157,
+        0.061604309741354356,
+        0.06571800904213772,
+        0.06946977825401614,
+        0.07201068278161789,
+        0.07629852290435209,
+        0.08175559856922981,
+        0.08598559609414799,
+        0.09006748301762586,
+        0.09443378128168271,
+        0.09747118004087096,
+        0.10078387128394192,
+        0.10657509784682231
+      ]
+    },
+    {
+      "offset": 7.489973767547804,
+      "terms": [
+        {
+          "feature": "age",
+          "coefficient": 0.06341518581559955,
+          "category": null
+        },
+        {
+          "feature": "bmi",
+          "coefficient": 0.0038595618692734207,
+          "category": null
+        },
+        {
+          "feature": "sbp",
+          "coefficient": 9.50647845557263e-05,
+          "category": null
+        },
+        {
+          "feature": "weight",
+          "coefficient": 0.0,
+          "category": null
+        },
+        {
+          "feature": "numoftreatments_medications",
+          "coefficient": 0.039507523402584774,
+          "category": null
+        },
+        {
+          "feature": "height",
+          "coefficient": 1.8621380826276848,
+          "category": null
+        },
+        {
+          "feature": "Albumin",
+          "coefficient": -0.02399756636764935,
+          "category": null
+        },
+        {
+          "feature": "Alkaline_phosphatase",
+          "coefficient": 0.0012227746339690294,
+          "category": null
+        },
+        {
+          "feature": "Apolipoprotein_B",
+          "coefficient": -0.4529165569633905,
+          "category": null
+        },
+        {
+          "feature": "C_reactive_protein",
+          "coefficient": 0.008576841989650806,
+          "category": null
+        },
+        {
+          "feature": "Cholesterol",
+          "coefficient": 0.09117395916391415,
+          "category": null
+        },
+        {
+          "feature": "Creatinine",
+          "coefficient": -0.0010076055866433651,
+          "category": null
+        },
+        {
+          "feature": "Cystatin_C",
+          "coefficient": 0.589521105575437,
+          "category": null
+        },
+        {
+          "feature": "Gamma_glutamyltransferase",
+          "coefficient": 0.00030139651137218114,
+          "category": null
+        },
+        {
+          "feature": "Glucose",
+          "coefficient": 0.033323806229850976,
+          "category": null
+        },
+        {
+          "feature": "Glycated_haemoglobin",
+          "coefficient": -0.0005341702571042322,
+          "category": null
+        },
+        {
+          "feature": "LDL_direct",
+          "coefficient": -0.05015414788681806,
+          "category": null
+        },
+        {
+          "feature": "Urate",
+          "coefficient": 0.0011127763376850579,
+          "category": null
+        },
+        {
+          "feature": "Urea",
+          "coefficient": -0.02551305183937747,
+          "category": null
+        },
+        {
+          "feature": "prs",
+          "coefficient": 0.32217629859282304,
+          "category": null
+        },
+        {
+          "feature": "duration",
+          "coefficient": -0.0023726269912801644,
+          "category": null
+        },
+        {
+          "feature": "sleepapnoea",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "lossweight",
+          "coefficient": 0.12217967602205741,
+          "category": 1.0
+        },
+        {
+          "feature": "fall",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "fall",
+          "coefficient": 0.0297187556390403,
+          "category": 2.0
+        },
+        {
+          "feature": "disability",
+          "coefficient": 0.13086129935351687,
+          "category": 1.0
+        },
+        {
+          "feature": "Blood_clot_in_the_leg",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "Hayfever_allergic_rhinitis_eczema",
+          "coefficient": -0.09190910646409503,
+          "category": 1.0
+        },
+        {
+          "feature": "Angina",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "hypertension",
+          "coefficient": 0.1731727460144292,
+          "category": 1.0
+        },
+        {
+          "feature": "diabete",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "smoke",
+          "coefficient": 0.01904674584667279,
+          "category": 1.0
+        },
+        {
+          "feature": "race",
+          "coefficient": 0.02793615294469779,
+          "category": 1.0
+        },
+        {
+          "feature": "sex",
+          "coefficient": 0.03777186655586478,
+          "category": 1.0
+        },
+        {
+          "feature": "insomnia",
+          "coefficient": -0.046300293609815316,
+          "category": 1.0
+        },
+        {
+          "feature": "heartfailer",
+          "coefficient": 0.028211156915071693,
+          "category": 1.0
+        },
+        {
+          "feature": "stroke",
+          "coefficient": 0.04549580283968153,
+          "category": 1.0
+        },
+        {
+          "feature": "infarc",
+          "coefficient": 0.10054178623343492,
+          "category": 1.0
+        },
+        {
+          "feature": "SABA",
+          "coefficient": 0.09951558385499652,
+          "category": 1.0
+        },
+        {
+          "feature": "LABA",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "SAMA",
+          "coefficient": 0.07883690361517712,
+          "category": 1.0
+        },
+        {
+          "feature": "LAMA",
+          "coefficient": 0.0885961340223217,
+          "category": 1.0
+        },
+        {
+          "feature": "Theophylline",
+          "coefficient": 0.12466604059906841,
+          "category": 1.0
+        },
+        {
+          "feature": "Systemic_corticosteroids",
+          "coefficient": 0.004010777469852682,
+          "category": 1.0
+        },
+        {
+          "feature": "Beta_blockers",
+          "coefficient": 0.05458521960971887,
+          "category": 1.0
+        },
+        {
+          "feature": "NonDHP_CCB",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "ACE_inhibitors",
+          "coefficient": 0.05070692170583355,
+          "category": 1.0
+        },
+        {
+          "feature": "ARBs",
+          "coefficient": 0.000666659712145611,
+          "category": 1.0
+        },
+        {
+          "feature": "Digoxin",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "j44_prior",
+          "coefficient": 0.12769862909795004,
+          "category": 1.0
+        }
+      ],
+      "baseline_hazard": [
+        0.0,
+        0.00299515098643698,
+        0.004058796983279534,
+        0.004975077117093001,
+        0.0051281371325869055,
+        0.006819615453813823,
+        0.008369324612572568,
+        0.010720449379521201,
+        0.011827378239563351,
+        0.01341650066636514,
+        0.014377113482841316,
+        0.016963940642545916,
+        0.018599347356236796,
+        0.018927679635835505,
+        0.019751038760804362,
+        0.022612603882858625,
+        0.025530369833625915,
+        0.027439615665716077,
+        0.029188722700820666,
+        0.030246333269739085,
+        0.03362573934784803,
+        0.03739387032344462,
+        0.03903394124090687,
+        0.039768434368460115,
+        0.04384475986343418,
+        0.04572402868737252,
+        0.04856966447350861,
+        0.05087219546462543,
+        0.052813264630232865,
+        0.05497735332480775,
+        0.05677410796364382,
+        0.05918615658293129,
+        0.06141305878205623,
+        0.06551756734792061,
+        0.06926071207469894,
+        0.07179597984868939,
+        0.07607477103293411,
+        0.08152144771972997,
+        0.08574496487950252,
+        0.08982548054636635,
+        0.09419042929777768,
+        0.09722777355574662,
+        0.10054080381620716,
+        0.10632970289593076
+      ]
+    },
+    {
+      "offset": 7.162454638924976,
+      "terms": [
+        {
+          "feature": "age",
+          "coefficient": 0.06249531709939839,
+          "category": null
+        },
+        {
+          "feature": "bmi",
+          "coefficient": -0.0062243078052251835,
+          "category": null
+        },
+        {
+          "feature": "sbp",
+          "coefficient": 0.0011320770529227786,
+          "category": null
+        },
+        {
+          "feature": "weight",
+          "coefficient": 0.004025830379691906,
+          "category": null
+        },
+        {
+          "feature": "numoftreatments_medications",
+          "coefficient": 0.0405634312137771,
+          "category": null
+        },
+        {
+          "feature": "height",
+          "coefficient": 1.5393206162305004,
+          "category": null
+        },
+        {
+          "feature": "Albumin",
+          "coefficient": -0.019767513769077188,
+          "category": null
+        },
+        {
+          "feature": "Alkaline_phosphatase",
+          "coefficient": 0.001151275468291983,
+          "category": null
+        },
+        {
+          "feature": "Apolipoprotein_B",
+          "coefficient": -0.5092315730386902,
+          "category": null
+        },
+        {
+          "feature": "C_reactive_protein",
+          "coefficient": 0.011279276711509864,
+          "category": null
+        },
+        {
+          "feature": "Cholesterol",
+          "coefficient": 0.0683545724703468,
+          "category": null
+        },
+        {
+          "feature": "Creatinine",
+          "coefficient": -0.0015279682070015884,
+          "category": null
+        },
+        {
+          "feature": "Cystatin_C",
+          "coefficient": 0.6508411447692541,
+          "category": null
+        },
+        {
+          "feature": "Gamma_glutamyltransferase",
+          "coefficient": 0.00017764463447413417,
+          "category": null
+        },
+        {
+          "feature": "Glucose",
+          "coefficient": 0.023279783255584215,
+          "category": null
+        },
+        {
+          "feature": "Glycated_haemoglobin",
+          "coefficient": 0.0,
+          "category": null
+        },
+        {
+          "feature": "LDL_direct",
+          "coefficient": 0.0,
+          "category": null
+        },
+        {
+          "feature": "Urate",
+          "coefficient": 0.0008040799286912143,
+          "category": null
+        },
+        {
+          "feature": "Urea",
+          "coefficient": -0.021189516242766878,
+          "category": null
+        },
+        {
+          "feature": "prs",
+          "coefficient": 0.320435328069577,
+          "category": null
+        },
+        {
+          "feature": "duration",
+          "coefficient": -0.002510559731328667,
+          "category": null
+        },
+        {
+          "feature": "sleepapnoea",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "lossweight",
+          "coefficient": 0.11974208847304933,
+          "category": 1.0
+        },
+        {
+          "feature": "fall",
+          "coefficient": -0.00022901276222122064,
+          "category": 1.0
+        },
+        {
+          "feature": "fall",
+          "coefficient": 0.02421275990642916,
+          "category": 2.0
+        },
+        {
+          "feature": "disability",
+          "coefficient": 0.1258719838717445,
+          "category": 1.0
+        },
+        {
+          "feature": "Blood_clot_in_the_leg",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "Hayfever_allergic_rhinitis_eczema",
+          "coefficient": -0.09599610463746928,
+          "category": 1.0
+        },
+        {
+          "feature": "Angina",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "hypertension",
+          "coefficient": 0.17016759273845417,
+          "category": 1.0
+        },
+        {
+          "feature": "diabete",
+          "coefficient": 0.007428829028637716,
+          "category": 1.0
+        },
+        {
+          "feature": "smoke",
+          "coefficient": 0.008462665945042597,
+          "category": 1.0
+        },
+        {
+          "feature": "race",
+          "coefficient": 0.024318983900063085,
+          "category": 1.0
+        },
+        {
+          "feature": "sex",
+          "coefficient": 0.0550594444532055,
+          "category": 1.0
+        },
+        {
+          "feature": "insomnia",
+          "coefficient": -0.04701272398141138,
+          "category": 1.0
+        },
+        {
+          "feature": "heartfailer",
+          "coefficient": 0.02456478669291675,
+          "category": 1.0
+        },
+        {
+          "feature": "stroke",
+          "coefficient": 0.04925792774947661,
+          "category": 1.0
+        },
+        {
+          "feature": "infarc",
+          "coefficient": 0.1120023195960852,
+          "category": 1.0
+        },
+        {
+          "feature": "SABA",
+          "coefficient": 0.09896387567474425,
+          "category": 1.0
+        },
+        {
+          "feature": "LABA",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "SAMA",
+          "coefficient": 0.07473259849572948,
+          "category": 1.0
+        },
+        {
+          "feature": "LAMA",
+          "coefficient": 0.08778113966093233,
+          "category": 1.0
+        },
+        {
+          "feature": "Theophylline",
+          "coefficient": 0.13021861828488787,
+          "category": 1.0
+        },
+        {
+          "feature": "Systemic_corticosteroids",
+          "coefficient": 0.016817623090437366,
+          "category": 1.0
+        },
+        {
+          "feature": "Beta_blockers",
+          "coefficient": 0.05576333210501174,
+          "category": 1.0
+        },
+        {
+          "feature": "NonDHP_CCB",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "ACE_inhibitors",
+          "coefficient": 0.05952922169877366,
+          "category": 1.0
+        },
+        {
+          "feature": "ARBs",
+          "coefficient": 0.0036181427474424824,
+          "category": 1.0
+        },
+        {
+          "feature": "Digoxin",
+          "coefficient": 0.0,
+          "category": 1.0
+        },
+        {
+          "feature": "j44_prior",
+          "coefficient": 0.12628307883175402,
+          "category": 1.0
+        }
+      ],
+      "baseline_hazard": [
+        0.0,
+        0.002996143976576139,
+        0.004058948015154246,
+        0.004974507862727693,
+        0.005127454721283836,
+        0.006817662146570654,
+        0.0083661128077605,
+        0.010714676439758751,
+        0.011820600052413208,
+        0.013408270243470091,
+        0.01436793473023837,
+        0.01695192431214349,
+        0.018585885965011695,
+        0.018913907401857284,
+        0.01973645583169225,
+        0.022601647285639584,
+        0.025527493996768277,
+        0.027442224194908386,
+        0.029196555854873837,
+        0.030257721669699825,
+        0.03364870311814854,
+        0.037429207702852296,
+        0.03907393096392449,
+        0.03981073825222007,
+        0.04389901245243708,
+        0.045783538737311266,
+        0.0486363578096416,
+        0.05094325851832426,
+        0.052888044256336954,
+        0.05505653146512408,
+        0.05685667645893701,
+        0.05927332895317446,
+        0.061503997782576876,
+        0.06561551315630244,
+        0.06936572869578901,
+        0.07190565866438023,
+        0.07619111550300593,
+        0.08164525608148251,
+        0.08587291603410636,
+        0.08995334707227907,
+        0.09431831957381266,
+        0.0973551366190427,
+        0.1006686085006748,
+        0.10645791717187437
+      ]
+    }
+  ],
+  "target": "Net AF risk, with competing death treated as censoring; not a competing-risk cumulative incidence.",
+  "missing_input_policy": "All 49 input fields are required. No website imputation.",
+  "validation": "UK Biobank internal and temporal validation; no independent external validation."
+}

@@ -1,0 +1,38 @@
+{
+  "source_model_sha256": "2d4788c95f46812a9c2841282914e3144af32d368450ee0df623aa2100a3257a",
+  "m": 5,
+  "input_features": 49,
+  "tolerance": 1e-10,
+  "cohorts": {
+    "internal": {
+      "participants": 2091,
+      "each_fit_max_abs_errors": [
+        1.2212453270876722e-15,
+        9.020562075079397e-16,
+        1.5543122344752192e-15,
+        1.27675647831893e-15,
+        1.3600232051658168e-15
+      ],
+      "frozen_ensemble_max_abs_error": 6.661338147750939e-16,
+      "complete_input_participants": 1466,
+      "complete_input_website_max_abs_error": 5.551115123125783e-16
+    },
+    "temporal": {
+      "participants": 1417,
+      "each_fit_max_abs_errors": [
+        1.1102230246251565e-15,
+        7.771561172376096e-16,
+        1.3877787807814457e-15,
+        9.992007221626409e-16,
+        7.91033905045424e-16
+      ],
+      "frozen_ensemble_max_abs_error": 4.996003610813204e-16,
+      "complete_input_participants": 1022,
+      "complete_input_website_max_abs_error": 4.996003610813204e-16
+    }
+  },
+  "only_model_parameters_exported": true,
+  "example_is_synthetic_marginal_medians_and_modes": true,
+  "max_abs_error": 1.5543122344752192e-15,
+  "passed": true
+}
